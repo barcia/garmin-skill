@@ -28,7 +28,7 @@ Script genera JSON → mcp__Garmin_MCP__upload_workout → workoutId → mcp__Ga
 
 **Con zona de ritmo:**
 ```bash
-python ~/.claude/skills/garmin/scripts/simple-run.py \
+python scripts/simple-run.py \
   --title "Easy Run" \
   --notes "Carrera fácil 30min en zona 2 de ritmo" \
   --duration 30 \
@@ -39,7 +39,7 @@ python ~/.claude/skills/garmin/scripts/simple-run.py \
 
 **Con ritmo personalizado (min/km):**
 ```bash
-python ~/.claude/skills/garmin/scripts/simple-run.py \
+python scripts/simple-run.py \
   --title "Rodaje 7km" \
   --notes "Rodaje suave a ritmo 5:30-6:00" \
   --duration 7 \
@@ -51,7 +51,7 @@ python ~/.claude/skills/garmin/scripts/simple-run.py \
 
 **Con FC personalizada (bpm):**
 ```bash
-python ~/.claude/skills/garmin/scripts/simple-run.py \
+python scripts/simple-run.py \
   --title "Rodaje aeróbico" \
   --notes "Rodaje aeróbico manteniendo FC entre 135-150 bpm" \
   --duration 40 \
@@ -63,7 +63,7 @@ python ~/.claude/skills/garmin/scripts/simple-run.py \
 
 **Sin objetivo:**
 ```bash
-python ~/.claude/skills/garmin/scripts/simple-run.py \
+python scripts/simple-run.py \
   --title "Easy Run" \
   --notes "Carrera fácil sin objetivo específico" \
   --duration 30 \
@@ -77,7 +77,7 @@ Opciones `--target`: `none` | `hr` | `pace`
 
 **Con ritmo personalizado por fase:**
 ```bash
-python ~/.claude/skills/garmin/scripts/interval-run.py \
+python scripts/interval-run.py \
   --title "3x5min ritmo" \
   --notes "Series de 5min a ritmo medio con recuperación activa" \
   --reps 3 \
@@ -93,7 +93,7 @@ python ~/.claude/skills/garmin/scripts/interval-run.py \
 
 **Con zona HR:**
 ```bash
-python ~/.claude/skills/garmin/scripts/interval-run.py \
+python scripts/interval-run.py \
   --title "6x1min Z4" \
   --notes "Series cortas en zona 4 de FC para mejorar VO2max" \
   --warmup-duration 10 \
@@ -106,7 +106,7 @@ python ~/.claude/skills/garmin/scripts/interval-run.py \
 
 **Con FC personalizada (bpm):**
 ```bash
-python ~/.claude/skills/garmin/scripts/interval-run.py \
+python scripts/interval-run.py \
   --title "3x5min HR 155-170" \
   --notes "Series de 5min a FC 155-170 con recuperación activa a 120-140" \
   --reps 3 \
@@ -147,7 +147,7 @@ Datos manuales ──→ upload_body_composition.py ──┘
 
 ### Subir Medición Manual
 ```bash
-python ~/.claude/skills/garmin/scripts/upload_body_composition.py \
+python scripts/upload_body_composition.py \
   --date 2026-02-03 \
   --weight 75.5 \
   --percent-fat 18.5 \
@@ -162,10 +162,10 @@ python ~/.claude/skills/garmin/scripts/upload_body_composition.py \
 ### Importar desde Eufy
 ```bash
 # Ver todas las mediciones
-python ~/.claude/skills/garmin/scripts/eufy_to_json.py eufy_export.csv
+python scripts/eufy_to_json.py eufy_export.csv
 
 # Solo las últimas 5
-python ~/.claude/skills/garmin/scripts/eufy_to_json.py eufy_export.csv --latest 5
+python scripts/eufy_to_json.py eufy_export.csv --latest 5
 ```
 
 ### Subir a Garmin

@@ -2,7 +2,7 @@
 
 Agent skill for creating and uploading workouts and body composition data to Garmin Connect.
 
-Designed to be used with AI coding agents (Claude Code, Cursor, etc.) as a [skill](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/tutorials#create-custom-slash-commands). The agent reads `garmin/SKILL.md`, follows the instructions, and uses the included Python scripts to generate Garmin-compatible JSON payloads.
+Designed to be used with AI coding agents (Claude Code, Cursor, etc.) as a [skill](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/tutorials#create-custom-slash-commands). The agent reads `SKILL.md`, follows the instructions, and uses the included Python scripts to generate Garmin-compatible JSON payloads.
 
 ## What It Does
 
@@ -44,13 +44,13 @@ On first run, the Garmin MCP will prompt for Garmin Connect credentials and stor
 
 ### 2. Install the skill
 
-Clone the repo and register `garmin/SKILL.md` as a skill in your agent:
+Clone the repo and register `SKILL.md` as a skill in your agent:
 
 ```bash
 git clone git@github.com:barcia/garmin-skill.git
 ```
 
-The skill path to register is `garmin/SKILL.md`.
+The skill path to register is `SKILL.md`.
 
 ## How It Works
 
@@ -67,7 +67,7 @@ The agent reads the SKILL.md decision table, picks the right script, runs it wit
 **Simple run** (time or distance, with optional pace/HR targets):
 
 ```bash
-python garmin/scripts/simple-run.py \
+python scripts/simple-run.py \
   --title "Easy Run" \
   --duration 30 --duration-type time \
   --target pace --pace-from 5.30 --pace-to 6.00
@@ -76,7 +76,7 @@ python garmin/scripts/simple-run.py \
 **Interval run** (structured repeats with per-phase targets):
 
 ```bash
-python garmin/scripts/interval-run.py \
+python scripts/interval-run.py \
   --title "6x1min Z4" \
   --warmup-duration 10 \
   --reps 6 \
@@ -97,20 +97,19 @@ Garmin MCP → upload_workout → workoutId → schedule_workout (optional)
 **Manual measurement:**
 
 ```bash
-python garmin/scripts/upload_body_composition.py \
+python scripts/upload_body_composition.py \
   --date 2026-02-03 --weight 75.5 --percent-fat 18.5 --muscle-mass 35.2
 ```
 
 **Import from Eufy smart scale:**
 
 ```bash
-python garmin/scripts/eufy_to_json.py eufy_export.csv --latest 5
+python scripts/eufy_to_json.py eufy_export.csv --latest 5
 ```
 
 ## Project Structure
 
 ```
-garmin/
 ├── SKILL.md                          # Agent skill definition (entry point)
 ├── scripts/
 │   ├── simple-run.py                 # Simple run workout generator
